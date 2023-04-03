@@ -14,6 +14,7 @@ class SongController extends Controller
     public function index()
     {
       $songs = Song::all();
+      return view('songs.index', compact('songs'));
     }
 
     /**
@@ -23,7 +24,7 @@ class SongController extends Controller
      */
     public function create()
     {
-      
+      return view('songs.create');
     }
 
     /**
@@ -34,7 +35,7 @@ class SongController extends Controller
      */
     public function store(Request $request)
     {
-      //
+      
     }
 
     /**
@@ -45,7 +46,7 @@ class SongController extends Controller
      */
     public function show($id)
     {
-      
+      return view('songs.show');
     }
 
     /**

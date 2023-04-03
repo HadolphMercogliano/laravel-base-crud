@@ -1,9 +1,6 @@
 @import "~bootstrap/scss/bootstrap";
 
-.jumbotron {
-    min-height: 100vh;
-}
-
-img {
-    max-height: 150px;
+.body {
+    background-color: #111;
+    color: #f0f0f0;
 }
