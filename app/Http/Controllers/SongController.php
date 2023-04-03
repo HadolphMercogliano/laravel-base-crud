@@ -35,7 +35,14 @@ class SongController extends Controller
      */
     public function store(Request $request)
     {
+      $data = $request->all();
       
+$song = new Song;
+
+      $song->fill($data);
+      $song->save();
+
+      return redirect()->route('songs.show', $song);
     }
 
     /**
@@ -44,9 +51,9 @@ class SongController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Song $song)
     {
-      return view('songs.show');
+      return view('songs.show', compact('song'));
     }
 
     /**

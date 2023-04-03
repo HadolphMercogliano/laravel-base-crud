@@ -11,11 +11,11 @@
     <table class="table table-dark table-striped mt-5">
         <thead>
             <tr>
-            <th scope="col">id</th>
-            <th scope="col">TITLE</th>
-            <th scope="col">AUTHOR</th>
-            <th scope="col">LENGTH</th>
-            <th scope="col">details</th>
+            <th scope="col">ID</th>
+            <th scope="col">Titolo</th>
+            <th scope="col">Autore</th>
+            <th scope="col">Durata</th>
+            <th scope="col">Dettagli</th>
             </tr>
         </thead>
         <tbody>
@@ -25,7 +25,7 @@
             <td>{{$song->title}}</td>
             <td>{{$song->author}}</td>
             <td>{{$song->lenght}}</td>
-            <td><a href="{{ route('songs.show', ['song' => $song]) }}">details</a></td>
+            <td><a href="{{ route('songs.show', ['song' => $song]) }}">Dettagli</a></td>
             </tr>
             @endforeach
         </tbody>

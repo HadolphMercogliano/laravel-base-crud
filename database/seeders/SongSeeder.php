@@ -24,7 +24,7 @@ class SongSeeder extends Seeder
         $new_song->author = $faker->name($gender = null);
         $new_song->editor = $faker->name($gender = null);
         $new_song->lenght = $faker->randomFloat(2, 2, 7);
-        $new_song->poster = "https://picsum.photos/200/300?random";
+        $new_song->poster = "https://picsum.photos/200/200?random";
 
         $new_song->save();
       }
