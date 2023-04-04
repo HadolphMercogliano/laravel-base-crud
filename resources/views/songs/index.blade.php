@@ -25,11 +25,12 @@
             <td>{{$song->title}}</td>
             <td>{{$song->author}}</td>
             <td>{{$song->lenght}}</td>
-            <td><a href="{{ route('songs.show', ['song' => $song]) }}">Dettagli</a></td>
+            <td><a href="{{ route('songs.show',$song) }}">Dettagli</a>
+            <a href="{{ route('songs.edit', $song) }}"> Mod</a></td>
             </tr>
             @endforeach
         </tbody>
   </table>
+  {{ $songs->links('pagination::bootstrap-5')}}
 </div>
-    
 @endsection 

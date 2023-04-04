@@ -13,7 +13,7 @@ class SongController extends Controller
      */
     public function index()
     {
-      $songs = Song::all();
+      $songs = Song::paginate(8);
       return view('songs.index', compact('songs'));
     }
 
@@ -62,9 +62,9 @@ $song = new Song;
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Song $song)
     {
-        //
+     return view('songs.edit',compact('song'));
     }
 
     /**
@@ -74,9 +74,9 @@ $song = new Song;
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Song $song)
     {
-        //
+      return redirect()->route('songs.show', $song);
     }
 
     /**
@@ -85,8 +85,9 @@ $song = new Song;
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Song $song)
     {
-        //
+        $song->delete();
+        return redirect()->route('songs.index');
     }
 }
