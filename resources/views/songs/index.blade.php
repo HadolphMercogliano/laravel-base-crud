@@ -27,12 +27,12 @@
             <td>{{$song->lenght}}</td>
             <td>
               <a href="{{ route('songs.show',$song) }}">Dettagli</a>
-              <a href="{{ route('songs.edit', $song) }}"> Mod</a>
+              <a href="{{ route('songs.edit', $song) }}" class="text-warning"> Mod</a>
 
               <form action="{{ route('songs.destroy', $song) }}" method="POST" class="text-danger d-inline">
                 @method('delete')
                 @csrf
-                <button type="submit">Del</button>
+                <button type="submit" class="btn-destroy">Del</button>
               </form>
           </td>
             </tr>

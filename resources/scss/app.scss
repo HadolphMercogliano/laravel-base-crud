@@ -4,3 +4,10 @@
     background-color: #111;
     color: #f0f0f0;
 }
+
+.btn-destroy {
+    background-color: transparent;
+    border: transparent;
+    color: $danger;
+    text-decoration: underline;
+}
