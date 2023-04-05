@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use Illuminate\Support\Facades\Validator;
 use App\Models\Song;
 use Illuminate\Http\Request;
 
@@ -76,6 +78,9 @@ $song = new Song;
      */
     public function update(Request $request, Song $song)
     {
+      $data = $request->all();
+      $song->update($data);
+
       return redirect()->route('songs.show', $song);
     }
 
@@ -89,5 +94,34 @@ $song = new Song;
     {
         $song->delete();
         return redirect()->route('songs.index');
+    }
+    private function validation($data) {
+      Validator::make(
+        $data,
+        [
+          'title' =>'required|string',
+          'album' =>'required|string',
+          'author' =>'required|string',
+          'editor' =>'required|string',
+          'lenght' =>'required|float',
+          
+        ],
+        [
+          'title.required' => 'Il nome del brano è obbligatorio',
+          'title.string' => 'Il nome del brano deve essere una stringa',
+
+          'album.required' => 'Il nome del brano è obbligatorio',
+          'album.string' => 'Il nome del brano deve essere una stringa',
+
+          'author.required' => 'Il nome del brano è obbligatorio',
+          'author.string' => 'Il nome del brano deve essere una stringa',
+
+          'editor.required' => 'Il nome del brano è obbligatorio',
+          'editor.string' => 'Il nome del brano deve essere una stringa',
+
+          'lenght.required' => 'Il nome del brano è obbligatorio',
+          'lenght.float' => 'Il nome del brano deve essere un numero con la virgola'
+        ]
+        );
     }
 }
