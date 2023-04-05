@@ -78,9 +78,9 @@ $song = new Song;
      */
     public function update(Request $request, Song $song)
     {
-      $data = $request->all();
-      $song->update($data);
 
+      $data = $this->validation($request->all());
+      $song->update($data);
       return redirect()->route('songs.show', $song);
     }
 
@@ -96,7 +96,7 @@ $song = new Song;
         return redirect()->route('songs.index');
     }
     private function validation($data) {
-      Validator::make(
+     $validator = Validator::make(
         $data,
         [
           'title' =>'required|string',
@@ -122,6 +122,7 @@ $song = new Song;
           'lenght.required' => 'Il nome del brano è obbligatorio',
           'lenght.float' => 'Il nome del brano deve essere un numero con la virgola'
         ]
-        );
+        )->validate();
+        return $validator;
     }
 }
